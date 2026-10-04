@@ -9,7 +9,7 @@ let flipTwo = undefined
 
 function random() {
     container.innerHTML = ''
-    let cards = ['match1', 'match1', 'match2', 'match2', 'match3', 'match3', 'match4', 'match4', 'match5', 'match5',]
+    let cards = ['📊', '📊', '👍', '👍', 'match3', 'match3', 'match4', 'match4', 'match5', 'match5',]
 
     while (cards.length > 0) {
         const rando = Math.floor(Math.random() * cards.length)
@@ -22,10 +22,9 @@ function random() {
     flipOne = undefined
     flipTwo = undefined
 }
-
+random()
 
 function whichCard(e) {
-
     e.target.innerText = e.target.className
 
     if (flipOne != undefined) {
@@ -38,8 +37,9 @@ function whichCard(e) {
     if (flipOne.className === flipTwo.className) {
         console.log
     } else {
-
+        flipOne.innerText = ''
+        flipTwo.innerText = ''
     }
+    flipOne = undefined
+    flipTwo = undefined
 }
-
-
