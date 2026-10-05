@@ -9,23 +9,44 @@ let flipTwo = undefined
 
 function random() {
     container.innerHTML = ''
-    let cards = ['📊', '📊', '👍', '👍', 'match3', 'match3', 'match4', 'match4', 'match5', 'match5',]
+
+    let cards = [
+        '⚾', '⚾',
+        '🧢', '🧢',
+        '🌭', '🌭',
+        '🧦', '🧦',
+        '🏟️', '🏟️'
+    ]
 
     while (cards.length > 0) {
         const rando = Math.floor(Math.random() * cards.length)
+
         const div = document.createElement('div')
+
+        div.classList.add('card')
+        div.dataset.symbol = cards[rando]
+
         container.appendChild(div)
-        div.classList.add('card', cards[rando])
-        div.innerText = ''
+
         cards.splice(rando, 1)
     }
+
     flipOne = undefined
     flipTwo = undefined
 }
+
 random()
 
+
 function whichCard(e) {
-    e.target.innerText = e.target.className
+
+    // Don't do anything if the container was clicked
+    if (!e.target.classList.contains('card')) {
+        return
+    }
+
+    // Show Boston symbol
+    e.target.innerText = e.target.dataset.symbol
 
     if (flipOne != undefined) {
         flipTwo = e.target
@@ -34,12 +55,13 @@ function whichCard(e) {
         return
     }
 
-    if (flipOne.className === flipTwo.className) {
-        console.log
+    if (flipOne.dataset.symbol === flipTwo.dataset.symbol) {
+        console.log('match!')
     } else {
         flipOne.innerText = ''
         flipTwo.innerText = ''
     }
+
     flipOne = undefined
     flipTwo = undefined
 }
