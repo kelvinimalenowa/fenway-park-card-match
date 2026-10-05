@@ -20,14 +20,11 @@ function random() {
 
     while (cards.length > 0) {
         const rando = Math.floor(Math.random() * cards.length)
-
         const div = document.createElement('div')
 
         div.classList.add('card')
         div.dataset.symbol = cards[rando]
-
         container.appendChild(div)
-
         cards.splice(rando, 1)
     }
 
@@ -40,12 +37,10 @@ random()
 
 function whichCard(e) {
 
-    // Don't do anything if the container was clicked
     if (!e.target.classList.contains('card')) {
         return
     }
 
-    // Show Boston symbol
     e.target.innerText = e.target.dataset.symbol
 
     if (flipOne != undefined) {
