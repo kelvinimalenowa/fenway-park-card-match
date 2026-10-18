@@ -4,6 +4,8 @@ Fenway Match is a baseball-themed card matching game inspired by Fenway Park and
 
 I built this project to practice JavaScript game logic, DOM manipulation, and event handling while creating a more complete visual experience around a classic matching game.
 
+[Play Fenway Card Match](https://fenway-park-card-match.netlify.app)
+
 ## 📸 Project Preview
 
 ![Fenway Match project preview](assets/mockup.png)
